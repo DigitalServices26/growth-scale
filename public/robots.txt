@@ -1,0 +1,5 @@
+# robots.txt — Pulse Digital
+User-agent: *
+Allow: /
+
+Sitemap: https://www.pulsedigital.co.uk/sitemap.xml

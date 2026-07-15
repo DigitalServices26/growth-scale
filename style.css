@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Pulse Digital — Tailwind Theme & Custom Styles
+   --------------------------------------------------------------------------
+   Custom design tokens are defined via @theme so they generate utility
+   classes (e.g. bg-navy, text-royal, font-display). Update values here to
+   re-theme the entire site.
+   ========================================================================== */
+
+@theme {
+  /* Brand palette — slate/white base, deep navy, royal blue accents */
+  --color-navy: #0f172a;
+  --color-navy-light: #1e293b;
+  --color-royal: #2563eb;
+  --color-royal-dark: #1d4ed8;
+  --color-royal-light: #3b82f6;
+  --color-sky: #38bdf8;
+  --color-ink: #1e293b;
+  --color-slate-soft: #64748b;
+
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  /* Custom shadows for premium feel */
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-card-hover: 0 24px 60px rgba(15, 23, 42, 0.16);
+  --shadow-cta: 0 12px 30px rgba(37, 99, 235, 0.28);
+}
+
+/* ---------- Base ---------- */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Reveal-on-scroll animation ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Mobile menu transition ---------- */
+
+#mobile-menu {
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+  overflow: hidden;
+}
