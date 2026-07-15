@@ -1,77 +1,82 @@
 /* ==========================================================================
-   Pulse Digital — Landing Page
-   Vanilla JavaScript (modular, well-commented)
+   Pulse Digital — Digital Marketing Agency
+   Vanilla JavaScript
    --------------------------------------------------------------------------
    Modules
-   1. Sticky header shadow on scroll
-   2. Mobile hamburger menu toggle
-   3. Active nav link highlighting
+   1. Sticky header on scroll
+   2. Mobile navigation toggle
+   3. Smooth scroll & active nav highlighting
    4. Reveal-on-scroll (IntersectionObserver)
-   5. Contact form validation
-   6. Auto-update footer year
+   5. Animated counters
+   6. FAQ accordion (native details enhancement)
+   7. Contact form validation
+   8. Back-to-top button
+   9. Auto-update footer year
    ========================================================================== */
 
 (function () {
   "use strict";
 
-  /* =================== 1. STICKY HEADER SHADOW ==================== */
+  /* =================== 1. STICKY HEADER ON SCROLL =================== */
 
   function initStickyHeader() {
     const header = document.getElementById("header");
     if (!header) return;
 
     const onScroll = () => {
-      header.classList.toggle("shadow-md", window.scrollY > 20);
-      header.classList.toggle("border-slate-100", window.scrollY > 20);
+      if (window.scrollY > 20) {
+        header.classList.add("header--scrolled");
+      } else {
+        header.classList.remove("header--scrolled");
+      }
     };
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  /* ================ 2. MOBILE HAMBURGER MENU ===================== */
+  /* ================== 2. MOBILE NAVIGATION TOGGLE =================== */
 
-  function initMobileMenu() {
-    const toggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("mobile-menu");
-    if (!toggle || !menu) return;
+  function initMobileNav() {
+    const toggle = document.getElementById("nav-toggle");
+    const nav = document.getElementById("primary-nav");
+    if (!toggle || !nav) return;
 
-    const bars = toggle.querySelectorAll(".menu-bar");
-    let open = false;
-
-    const setMenu = (isOpen) => {
-      open = isOpen;
-      menu.classList.toggle("max-h-0", !isOpen);
-      menu.classList.toggle("opacity-0", !isOpen);
-      menu.classList.toggle("max-h-96", isOpen);
-      menu.classList.toggle("opacity-100", isOpen);
-      toggle.setAttribute("aria-expanded", String(isOpen));
-
-      // Animate bars into an X
-      bars[0].classList.toggle("translate-y-2", isOpen);
-      bars[0].classList.toggle("rotate-45", isOpen);
-      bars[1].classList.toggle("opacity-0", isOpen);
-      bars[2].classList.toggle("-translate-y-2", isOpen);
-      bars[2].classList.toggle("-rotate-45", isOpen);
+    const setOpen = (open) => {
+      nav.classList.toggle("open", open);
+      toggle.classList.toggle("nav-toggle--open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      document.body.style.overflow = open ? "hidden" : "";
     };
 
-    toggle.addEventListener("click", () => setMenu(!open));
+    toggle.addEventListener("click", () => {
+      setOpen(!nav.classList.contains("open"));
+    });
 
-    // Close when a mobile link is tapped
-    menu.querySelectorAll(".mobile-link").forEach((link) => {
-      link.addEventListener("click", () => setMenu(false));
+    // Close menu when a nav link is tapped
+    nav.addEventListener("click", (e) => {
+      if (e.target.matches(".nav__link")) {
+        setOpen(false);
+      }
     });
 
     // Close on resize to desktop
     window.addEventListener("resize", () => {
-      if (window.innerWidth >= 768) setMenu(false);
+      if (window.innerWidth > 980) setOpen(false);
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target) && nav.classList.contains("open")) {
+        setOpen(false);
+      }
     });
   }
 
-  /* =============== 3. ACTIVE NAV LINK HIGHLIGHTING =============== */
+  /* ============ 3. SMOOTH SCROLL & ACTIVE NAV HIGHLIGHTING =========== */
 
   function initActiveNav() {
-    const navLinks = document.querySelectorAll(".nav-link");
+    const navLinks = document.querySelectorAll(".nav__link");
     if (!navLinks.length) return;
 
     const sections = Array.from(navLinks)
@@ -82,17 +87,17 @@
       .filter(Boolean);
 
     const setActive = () => {
-      const pos = window.scrollY + 130;
-      let current = null;
+      const scrollPos = window.scrollY + 120;
+      let currentId = null;
 
       sections.forEach((section) => {
-        if (pos >= section.offsetTop) current = "#" + section.id;
+        if (scrollPos >= section.offsetTop) {
+          currentId = "#" + section.id;
+        }
       });
 
       navLinks.forEach((link) => {
-        const isActive = link.getAttribute("href") === current;
-        link.classList.toggle("text-royal", isActive);
-        link.classList.toggle("font-semibold", isActive);
+        link.classList.toggle("active", link.getAttribute("href") === currentId);
       });
     };
 
@@ -100,7 +105,7 @@
     window.addEventListener("scroll", setActive, { passive: true });
   }
 
-  /* =============== 4. REVEAL-ON-SCROLL ANIMATIONS ================ */
+  /* ================== 4. REVEAL-ON-SCROLL ANIMATIONS ================= */
 
   function initRevealOnScroll() {
     const reveals = document.querySelectorAll(".reveal");
@@ -126,62 +131,170 @@
     reveals.forEach((el) => observer.observe(el));
   }
 
-  /* =============== 5. CONTACT FORM VALIDATION ==================== */
+  /* ===================== 5. ANIMATED COUNTERS ====================== */
+
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || "";
+    const duration = 2000;
+    const startTime = performance.now();
+
+    const update = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      // easeOutExpo for a premium feel
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const value = Math.floor(eased * target);
+      el.textContent = value + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target + suffix;
+      }
+    };
+
+    requestAnimationFrame(update);
+  }
+
+  function initCounters() {
+    const counters = document.querySelectorAll(".stat__number");
+    if (!counters.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      counters.forEach((el) => {
+        el.textContent = el.dataset.count + (el.dataset.suffix || "");
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((el) => observer.observe(el));
+  }
+
+  /* =================== 6. FAQ ACCORDION ENHANCEMENT ================= */
+
+  function initFaqAccordion() {
+    const items = document.querySelectorAll(".faq-item");
+    if (!items.length) return;
+
+    // Allow only one open at a time for a cleaner accordion feel
+    items.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (item.open) {
+          items.forEach((other) => {
+            if (other !== item && other.open) other.open = false;
+          });
+        }
+      });
+    });
+  }
+
+  /* ================== 7. CONTACT FORM VALIDATION =================== */
 
   function initContactForm() {
     const form = document.getElementById("contact-form");
     const feedback = document.getElementById("form-feedback");
     if (!form || !feedback) return;
 
-    const isEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    const isEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
-    const mark = (field, invalid) => {
-      field.classList.toggle("border-red-500", invalid);
-      field.classList.toggle("ring-red-100", invalid);
-      if (invalid) field.setAttribute("aria-invalid", "true");
-      else field.removeAttribute("aria-invalid");
+    const markInvalid = (field, invalid) => {
+      field.classList.toggle("invalid", invalid);
+      if (invalid) {
+        field.setAttribute("aria-invalid", "true");
+      } else {
+        field.removeAttribute("aria-invalid");
+      }
     };
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       feedback.textContent = "";
-      feedback.className = "mt-4 text-sm font-medium text-center min-h-[24px]";
+      feedback.className = "form-feedback";
 
-      const { name, email, service, message } = form;
+      const name = form.name;
+      const email = form.email;
+      const service = form.service;
+      const message = form.message;
+
       let valid = true;
 
-      if (!name.value.trim()) { mark(name, true); valid = false; } else mark(name, false);
-      if (!isEmail(email.value.trim())) { mark(email, true); valid = false; } else mark(email, false);
-      if (!service.value) { mark(service, true); valid = false; } else mark(service, false);
-      if (!message.value.trim()) { mark(message, true); valid = false; } else mark(message, false);
+      if (!name.value.trim()) {
+        markInvalid(name, true);
+        valid = false;
+      } else markInvalid(name, false);
+
+      if (!isEmail(email.value.trim())) {
+        markInvalid(email, true);
+        valid = false;
+      } else markInvalid(email, false);
+
+      if (!service.value) {
+        markInvalid(service, true);
+        valid = false;
+      } else markInvalid(service, false);
+
+      if (!message.value.trim()) {
+        markInvalid(message, true);
+        valid = false;
+      } else markInvalid(message, false);
 
       if (!valid) {
         feedback.textContent = "Please fill in all required fields correctly.";
-        feedback.classList.add("text-red-600");
+        feedback.classList.add("error");
         return;
       }
 
+      // Simulated success (no backend wired yet)
       feedback.textContent = "Thank you! Your message has been sent. We'll be in touch within one business day.";
-      feedback.classList.add("text-green-600");
+      feedback.classList.add("success");
       form.reset();
     });
   }
 
-  /* =============== 6. AUTO-UPDATE FOOTER YEAR ==================== */
+  /* ==================== 8. BACK TO TOP BUTTON ===================== */
+
+  function initBackToTop() {
+    const btn = document.getElementById("back-to-top");
+    if (!btn) return;
+
+    const onScroll = () => {
+      btn.classList.toggle("show", window.scrollY > 600);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  /* ================ 9. AUTO-UPDATE FOOTER YEAR ==================== */
 
   function initYear() {
     const el = document.getElementById("year");
     if (el) el.textContent = new Date().getFullYear();
   }
 
-  /* ========================== INIT ALL =========================== */
+  /* =========================== INIT ALL =========================== */
 
   function init() {
     initStickyHeader();
-    initMobileMenu();
+    initMobileNav();
     initActiveNav();
     initRevealOnScroll();
+    initCounters();
+    initFaqAccordion();
     initContactForm();
+    initBackToTop();
     initYear();
   }
 
