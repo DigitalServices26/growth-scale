@@ -1,68 +1,147 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
-    <title>Pulse Digital | Data-Driven Digital Marketing Agency UK</title>
-    <meta name="title" content="Pulse Digital | Data-Driven Digital Marketing Agency UK" />
-    <meta name="description" content="Pulse Digital is a UK digital marketing agency helping businesses grow with data-driven SEO, social media, brand performance, and consulting strategies." />
-    <meta name="keywords" content="digital marketing agency UK, SEO services, social media marketing, brand performance, digital marketing consulting, lead generation" />
+    <!-- ====================== Primary Meta Tags ====================== -->
+    <title>Pulse Digital | Premier Digital Marketing Agency</title>
+    <meta
+      name="description"
+      content="Pulse Digital is a premier digital marketing agency helping brands scale with data-driven SEO, social media, brand performance, and consulting strategies."
+    />
     <meta name="author" content="Pulse Digital" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.pulsedigital.co.uk/" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-    <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+    <!-- Favicon (inline SVG data URI — no external file needed) -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F172A'/%3E%3Cpath d='M16 44 L16 20 L24 20 L24 36 L36 36 L36 44 Z' fill='%2338BDF8'/%3E%3Ccircle cx='44' cy='32' r='6' fill='%232563EB'/%3E%3C/svg%3E"
+    />
 
-    <!-- Open Graph / Facebook -->
+    <!-- ====================== Open Graph / Social ====================== -->
     <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pulse Digital | Premier Digital Marketing Agency" />
+    <meta
+      property="og:description"
+      content="Scale your brand's digital footprint with data-driven, multi-channel growth campaigns."
+    />
     <meta property="og:url" content="https://www.pulsedigital.co.uk/" />
-    <meta property="og:title" content="Pulse Digital | Data-Driven Digital Marketing Agency UK" />
-    <meta property="og:description" content="We help businesses generate more traffic, qualified leads, and measurable growth through proven digital marketing strategies." />
-    <meta property="og:image" content="https://www.pulsedigital.co.uk/assets/og-image.jpg" />
     <meta property="og:site_name" content="Pulse Digital" />
     <meta property="og:locale" content="en_GB" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://www.pulsedigital.co.uk/" />
-    <meta name="twitter:title" content="Pulse Digital | Data-Driven Digital Marketing Agency UK" />
-    <meta name="twitter:description" content="We help businesses generate more traffic, qualified leads, and measurable growth through proven digital marketing strategies." />
-    <meta name="twitter:image" content="https://www.pulsedigital.co.uk/assets/og-image.jpg" />
-    <meta name="twitter:site" content="@pulsedigital" />
+    <meta name="twitter:title" content="Pulse Digital | Premier Digital Marketing Agency" />
+    <meta
+      name="twitter:description"
+      content="Scale your brand's digital footprint with data-driven, multi-channel growth campaigns."
+    />
 
-    <!-- Performance: Preconnect to Google Fonts -->
+    <!-- ====================== Fonts ====================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-    <!-- Google Font: Poppins -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    <!-- ====================== Tailwind CSS via CDN ====================== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Tailwind runtime configuration — custom theme tokens.
+      // Update values here to re-theme the entire site.
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: { DEFAULT: "#0f172a", light: "#1e293b" },
+              royal: {
+                DEFAULT: "#2563eb",
+                dark: "#1d4ed8",
+                light: "#3b82f6",
+              },
+              sky: "#38bdf8",
+              ink: "#1e293b",
+            },
+            fontFamily: {
+              display: ["Poppins", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              card: "0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04)",
+              "card-hover": "0 24px 60px rgba(15, 23, 42, 0.16)",
+              cta: "0 12px 30px rgba(37, 99, 235, 0.28)",
+            },
+          },
+        },
+      };
+    </script>
 
-    <!-- LocalBusiness JSON-LD Schema -->
+    <!-- ====================== Custom Styles ====================== -->
+    <style>
+      body {
+        font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      html {
+        scroll-padding-top: 90px;
+      }
+
+      /* Reveal-on-scroll animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Mobile menu transition */
+      #mobile-menu {
+        transition: max-height 0.35s ease, opacity 0.25s ease;
+        overflow: hidden;
+      }
+
+      /* Respect reduced-motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+
+    <!-- ====================== LocalBusiness JSON-LD Schema ====================== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Pulse Digital",
-        "image": "https://www.pulsedigital.co.uk/assets/og-image.jpg",
-        "description": "Data-driven digital marketing agency helping UK businesses grow with SEO, social media, brand performance, and consulting.",
+        "description": "Premier digital marketing agency helping brands scale with data-driven strategies.",
         "url": "https://www.pulsedigital.co.uk/",
         "telephone": "+44-7810-062054",
         "email": "hello@pulsedigital.co.uk",
         "address": {
           "@type": "PostalAddress",
-          "addressCountry": "GB",
-          "addressRegion": "United Kingdom"
+          "streetAddress": "71 Cherry Tree Lane",
+          "addressLocality": "London",
+          "addressRegion": "England",
+          "postalCode": "SW1A 1AA",
+          "addressCountry": "GB"
         },
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
@@ -72,555 +151,434 @@
         },
         "sameAs": [
           "https://www.facebook.com/",
-          "https://www.instagram.com/",
           "https://www.linkedin.com/",
           "https://twitter.com/",
-          "https://www.youtube.com/"
+          "https://www.instagram.com/"
         ]
       }
     </script>
   </head>
 
-  <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#hero" class="skip-link">Skip to main content</a>
+  <body class="bg-white text-ink font-display antialiased">
+    <!-- Skip link for accessibility -->
+    <a
+      href="#hero"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[2000] focus:bg-royal focus:text-white focus:px-6 focus:py-3 focus:rounded-lg focus:font-semibold"
+    >
+      Skip to main content
+    </a>
 
-    <!-- ========================= HEADER ========================= -->
-    <header class="header" id="header">
-      <div class="container header__inner">
-        <a href="#hero" class="logo" aria-label="Pulse Digital home">
-          <span class="logo__mark">Pulse</span><span class="logo__text">Digital</span>
-        </a>
+    <!-- ============================ HEADER ============================ -->
+    <header
+      id="header"
+      class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur-md border-b border-transparent transition-all duration-300"
+    >
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="flex h-20 items-center justify-between">
+          <!-- Logo -->
+          <a
+            href="#hero"
+            class="flex items-baseline gap-0 text-2xl font-extrabold tracking-tight"
+            aria-label="Pulse Digital home"
+          >
+            <span class="text-royal">Pulse</span><span class="text-navy">Digital</span>
+          </a>
 
-        <nav class="nav" id="primary-nav" aria-label="Primary">
-          <ul class="nav__list">
-            <li><a href="#hero" class="nav__link">Home</a></li>
-            <li><a href="#about" class="nav__link">About</a></li>
-            <li><a href="#services" class="nav__link">Services</a></li>
-            <li><a href="#why" class="nav__link">Why Choose Us</a></li>
-            <li><a href="#process" class="nav__link">Process</a></li>
-            <li><a href="#testimonials" class="nav__link">Testimonials</a></li>
-            <li><a href="#faq" class="nav__link">FAQ</a></li>
-            <li><a href="#contact" class="nav__link">Contact</a></li>
-          </ul>
+          <!-- Desktop Navigation -->
+          <nav id="primary-nav" class="hidden md:flex items-center gap-8" aria-label="Primary">
+            <a href="#hero" class="nav-link text-sm font-medium text-slate-700 hover:text-royal transition-colors">Home</a>
+            <a href="#services" class="nav-link text-sm font-medium text-slate-700 hover:text-royal transition-colors">Services</a>
+            <a href="#about" class="nav-link text-sm font-medium text-slate-700 hover:text-royal transition-colors">About</a>
+            <a href="#contact" class="nav-link text-sm font-medium text-slate-700 hover:text-royal transition-colors">Contact</a>
+          </nav>
+
+          <!-- Desktop CTA -->
+          <a
+            href="#contact"
+            class="hidden md:inline-flex items-center rounded-full bg-royal px-6 py-3 text-sm font-semibold text-white shadow-cta hover:bg-royal-dark hover:-translate-y-0.5 transition-all duration-200"
+          >
+            Get a Free Audit
+          </a>
+
+          <!-- Mobile hamburger -->
+          <button
+            id="menu-toggle"
+            class="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span class="menu-bar block h-0.5 w-6 bg-navy rounded transition-all duration-300"></span>
+            <span class="menu-bar block h-0.5 w-6 bg-navy rounded transition-all duration-300"></span>
+            <span class="menu-bar block h-0.5 w-6 bg-navy rounded transition-all duration-300"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden bg-white border-t border-slate-100 max-h-0 opacity-0">
+        <nav class="px-6 py-4 flex flex-col gap-1" aria-label="Mobile">
+          <a href="#hero" class="mobile-link block rounded-lg px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-royal transition-colors">Home</a>
+          <a href="#services" class="mobile-link block rounded-lg px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-royal transition-colors">Services</a>
+          <a href="#about" class="mobile-link block rounded-lg px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-royal transition-colors">About</a>
+          <a href="#contact" class="mobile-link block rounded-lg px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-royal transition-colors">Contact</a>
+          <a href="#contact" class="mobile-link mt-2 inline-flex items-center justify-center rounded-full bg-royal px-6 py-3 text-base font-semibold text-white">Get a Free Audit</a>
         </nav>
-
-        <a href="#contact" class="btn btn--primary header__cta">Get Free Consultation</a>
-
-        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-        </button>
       </div>
     </header>
 
     <main>
-      <!-- ========================= HERO ========================= -->
-      <section class="hero" id="hero" aria-labelledby="hero-title">
-        <div class="container hero__inner">
-          <div class="hero__content reveal">
-            <span class="hero__eyebrow">UK Digital Marketing Agency</span>
-            <h1 class="hero__title" id="hero-title">Grow Your Business with Data-Driven Digital Marketing</h1>
-            <p class="hero__subtitle">
-              We help businesses generate more traffic, qualified leads, and measurable growth through proven
-              digital marketing strategies.
+      <!-- ============================ HERO ============================ -->
+      <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white pt-36 pb-24 lg:pt-44 lg:pb-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-3xl text-center">
+            <span class="reveal inline-block rounded-full bg-royal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-royal mb-6">
+              Premier Digital Marketing Agency
+            </span>
+            <h1 class="reveal text-4xl font-extrabold leading-tight tracking-tight text-navy sm:text-5xl lg:text-6xl">
+              Marketing That Delivers
+              <span class="text-royal">Measurable Growth</span>
+            </h1>
+            <p class="reveal mx-auto mt-6 max-w-2xl text-lg text-slate-600 leading-relaxed">
+              We help ambitious brands scale their digital footprint, capture high-intent audiences, and convert
+              clicks into customers with data-driven, multi-channel campaigns built for ROI.
             </p>
-            <div class="hero__actions">
-              <a href="#contact" class="btn btn--primary btn--lg">Get Started</a>
-              <a href="#services" class="btn btn--ghost btn--lg">Our Services</a>
-            </div>
-            <div class="hero__stats">
-              <div class="hero__stat">
-                <strong>150+</strong>
-                <span>Projects Completed</span>
-              </div>
-              <div class="hero__stat">
-                <strong>98%</strong>
-                <span>Client Satisfaction</span>
-              </div>
-              <div class="hero__stat">
-                <strong>10+</strong>
-                <span>Years Experience</span>
-              </div>
+            <div class="reveal mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="#contact"
+                class="inline-flex items-center rounded-full bg-royal px-8 py-4 text-base font-semibold text-white shadow-cta hover:bg-royal-dark hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Get Started
+              </a>
+              <a
+                href="#services"
+                class="inline-flex items-center rounded-full border border-slate-200 bg-white px-8 py-4 text-base font-semibold text-navy hover:border-navy hover:bg-navy hover:text-white transition-all duration-200"
+              >
+                Explore Services
+              </a>
             </div>
           </div>
 
-          <div class="hero__visual reveal" aria-hidden="true">
-            <div class="hero__blob"></div>
-            <div class="hero__card hero__card--1">
-              <span class="hero__card-icon">📈</span>
-              <div>
-                <strong>+212%</strong>
-                <span>Traffic Growth</span>
-              </div>
+          <!-- Trust bar -->
+          <div class="reveal mt-20 grid grid-cols-2 gap-8 sm:grid-cols-4 max-w-4xl mx-auto">
+            <div class="text-center">
+              <div class="text-3xl font-extrabold text-navy">150+</div>
+              <div class="mt-1 text-sm text-slate-500">Projects Delivered</div>
             </div>
-            <div class="hero__card hero__card--2">
-              <span class="hero__card-icon">🎯</span>
-              <div>
-                <strong>+89%</strong>
-                <span>Lead Increase</span>
-              </div>
+            <div class="text-center">
+              <div class="text-3xl font-extrabold text-navy">98%</div>
+              <div class="mt-1 text-sm text-slate-500">Client Retention</div>
             </div>
-            <div class="hero__card hero__card--3">
-              <span class="hero__card-icon">⚡</span>
-              <div>
-                <strong>24/7</strong>
-                <span>Support</span>
-              </div>
+            <div class="text-center">
+              <div class="text-3xl font-extrabold text-navy">10+</div>
+              <div class="mt-1 text-sm text-slate-500">Years Experience</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-extrabold text-navy">24/7</div>
+              <div class="mt-1 text-sm text-slate-500">Support</div>
             </div>
           </div>
-        </div>
-
-        <!-- Wave divider -->
-        <div class="hero__wave" aria-hidden="true">
-          <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,64 C240,128 480,0 720,32 C960,64 1200,128 1440,64 L1440,120 L0,120 Z" /></svg>
         </div>
       </section>
 
-      <!-- ========================= ABOUT ========================= -->
-      <section class="section about" id="about" aria-labelledby="about-title">
-        <div class="container">
-          <div class="section__head reveal">
-            <span class="section__eyebrow">About Us</span>
-            <h2 class="section__title" id="about-title">About Pulse Digital</h2>
-            <p class="section__lead">
-              We help businesses build stronger online visibility through strategic digital marketing solutions. Our
-              focus is delivering measurable growth, better engagement, and long-term success.
+      <!-- ========================== SERVICES ========================== -->
+      <section id="services" class="py-24 lg:py-32 bg-white">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <span class="inline-block rounded-full bg-royal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-royal mb-4">
+              Our Services
+            </span>
+            <h2 class="text-3xl font-bold tracking-tight text-navy sm:text-4xl">Solutions Built for Scalable Growth</h2>
+            <p class="mt-4 text-lg text-slate-600">
+              Five core disciplines, one integrated growth engine. Click any service to learn more.
             </p>
           </div>
 
-          <div class="about__grid">
-            <article class="feature-card reveal">
-              <div class="feature-card__icon" aria-hidden="true">👥</div>
-              <h3 class="feature-card__title">Experienced Team</h3>
-              <p class="feature-card__text">Seasoned marketers, designers, and analysts with a decade of combined expertise.</p>
+          <!--
+            Service cards grid.
+            Each "Learn More" link uses href="#" — replace with the matching
+            HTML page (e.g. /digital-marketing.html) when building dedicated
+            service pages later.
+          -->
+          <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- 1. Digital Marketing -->
+            <article class="reveal group flex flex-col rounded-2xl border border-slate-100 bg-white p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300">
+              <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-royal/10 text-2xl">🚀</div>
+              <h3 class="mt-6 text-xl font-bold text-navy">Digital Marketing</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                Scale your brand's digital footprint with comprehensive, multi-channel growth campaigns designed to
+                maximize ROI. We combine data-driven strategies with creative execution to capture and convert your
+                target audience.
+              </p>
+              <a href="#" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-royal group-hover:gap-2.5 transition-all">
+                Learn More
+                <span aria-hidden="true">→</span>
+              </a>
             </article>
-            <article class="feature-card reveal">
-              <div class="feature-card__icon" aria-hidden="true">📊</div>
-              <h3 class="feature-card__title">Data-Driven Strategy</h3>
-              <p class="feature-card__text">Every decision is backed by real data, research, and measurable performance metrics.</p>
+
+            <!-- 2. Brand Performance -->
+            <article class="reveal group flex flex-col rounded-2xl border border-slate-100 bg-white p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300">
+              <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-royal/10 text-2xl">💡</div>
+              <h3 class="mt-6 text-xl font-bold text-navy">Brand Performance</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                Position your brand for long-term equity and measurable, high-impact market growth. We align brand
+                storytelling with performance metrics to drive sustainable revenue and customer loyalty.
+              </p>
+              <a href="#" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-royal group-hover:gap-2.5 transition-all">
+                Learn More
+                <span aria-hidden="true">→</span>
+              </a>
             </article>
-            <article class="feature-card reveal">
-              <div class="feature-card__icon" aria-hidden="true">🔍</div>
-              <h3 class="feature-card__title">Transparent Reporting</h3>
-              <p class="feature-card__text">Clear, honest reports so you always know exactly how your campaigns perform.</p>
+
+            <!-- 3. Social Media Marketing -->
+            <article class="reveal group flex flex-col rounded-2xl border border-slate-100 bg-white p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300">
+              <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-royal/10 text-2xl">📱</div>
+              <h3 class="mt-6 text-xl font-bold text-navy">Social Media Marketing</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                Build a highly engaged community and amplify your brand voice across top social platforms. Our custom
+                content strategies and active community management turn casual scrolls into loyal brand advocates.
+              </p>
+              <a href="#" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-royal group-hover:gap-2.5 transition-all">
+                Learn More
+                <span aria-hidden="true">→</span>
+              </a>
             </article>
-            <article class="feature-card reveal">
-              <div class="feature-card__icon" aria-hidden="true">🏆</div>
-              <h3 class="feature-card__title">Proven Results</h3>
-              <p class="feature-card__text">A track record of driving traffic, leads, and revenue for businesses across the UK.</p>
+
+            <!-- 4. Search Engine Optimization -->
+            <article class="reveal group flex flex-col rounded-2xl border border-slate-100 bg-white p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300">
+              <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-royal/10 text-2xl">🔎</div>
+              <h3 class="mt-6 text-xl font-bold text-navy">Search Engine Optimization</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                Dominate organic search rankings and prepare your brand for modern AI search engines. We implement
+                technical optimization, clean architecture, and strategic content to drive high-intent organic traffic.
+              </p>
+              <a href="#" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-royal group-hover:gap-2.5 transition-all">
+                Learn More
+                <span aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <!-- 5. Consulting -->
+            <article class="reveal group flex flex-col rounded-2xl border border-slate-100 bg-white p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+              <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-royal/10 text-2xl">🧭</div>
+              <h3 class="mt-6 text-xl font-bold text-navy">Consulting</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                Access bespoke, fractional CMO advisory services and high-level strategic marketing audits. We deliver
+                customized, actionable growth roadmaps to guide your internal teams toward clear business milestones.
+              </p>
+              <a href="#" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-royal group-hover:gap-2.5 transition-all">
+                Learn More
+                <span aria-hidden="true">→</span>
+              </a>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ========================= SERVICES ========================= -->
-      <section class="section section--light services" id="services" aria-labelledby="services-title">
-        <div class="container">
-          <div class="section__head reveal">
-            <span class="section__eyebrow">Our Services</span>
-            <h2 class="section__title" id="services-title">Solutions Built for Growth</h2>
-            <p class="section__lead">From strategy to execution, we offer the services your business needs to thrive online.</p>
-          </div>
-
-          <div class="services__grid">
-            <!-- Service: Digital Marketing -->
-            <article class="service-card reveal">
-              <div class="service-card__icon" aria-hidden="true">🚀</div>
-              <h3 class="service-card__title">Digital Marketing</h3>
-              <p class="service-card__text">
-                Create integrated digital marketing campaigns that increase visibility, generate qualified leads, and
-                improve overall business growth.
+      <!-- =========================== ABOUT =========================== -->
+      <section id="about" class="py-24 lg:py-32 bg-slate-50">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+              <span class="inline-block rounded-full bg-royal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-royal mb-4">
+                About Pulse Digital
+              </span>
+              <h2 class="text-3xl font-bold tracking-tight text-navy sm:text-4xl">A Data-Driven Partner for Ambitious Brands</h2>
+              <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+                Pulse Digital is a premier UK marketing agency built on a simple principle: every campaign should
+                deliver measurable, accountable growth. We blend strategic thinking, creative excellence, and
+                performance data to help brands win in competitive markets.
               </p>
-              <a href="#" class="service-card__link" aria-label="Read more about Digital Marketing">Read More →</a>
-            </article>
-
-            <!-- Service: Brand Performance -->
-            <article class="service-card reveal">
-              <div class="service-card__icon" aria-hidden="true">💡</div>
-              <h3 class="service-card__title">Brand Performance</h3>
-              <p class="service-card__text">
-                Measure, optimise, and strengthen your brand performance through data-driven insights and
-                customer-focused strategies.
+              <p class="mt-4 text-base text-slate-500 leading-relaxed">
+                From early-stage startups to established enterprises, our team brings the same relentless focus on
+                results — transparent reporting, custom strategies, and long-term partnership.
               </p>
-              <a href="#" class="service-card__link" aria-label="Read more about Brand Performance">Read More →</a>
-            </article>
-
-            <!-- Service: Social Media Marketing -->
-            <article class="service-card reveal">
-              <div class="service-card__icon" aria-hidden="true">📱</div>
-              <h3 class="service-card__title">Social Media Marketing</h3>
-              <p class="service-card__text">
-                Build meaningful customer relationships through engaging content, targeted campaigns, and consistent
-                social media management.
-              </p>
-              <a href="#" class="service-card__link" aria-label="Read more about Social Media Marketing">Read More →</a>
-            </article>
-
-            <!-- Service: SEO -->
-            <article class="service-card reveal">
-              <div class="service-card__icon" aria-hidden="true">🔎</div>
-              <h3 class="service-card__title">Search Engine Optimization (SEO)</h3>
-              <p class="service-card__text">
-                Improve your website rankings, increase organic traffic, and attract customers actively searching for
-                your services.
-              </p>
-              <a href="#" class="service-card__link" aria-label="Read more about Search Engine Optimization">Read More →</a>
-            </article>
-
-            <!-- Service: Consulting -->
-            <article class="service-card reveal">
-              <div class="service-card__icon" aria-hidden="true">🧭</div>
-              <h3 class="service-card__title">Consulting</h3>
-              <p class="service-card__text">
-                Receive expert digital marketing advice, business insights, and customised strategies designed to
-                accelerate your company's growth.
-              </p>
-              <a href="#" class="service-card__link" aria-label="Read more about Consulting">Read More →</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================= WHY CHOOSE US ========================= -->
-      <section class="section why" id="why" aria-labelledby="why-title">
-        <div class="container">
-          <div class="section__head reveal">
-            <span class="section__eyebrow">Why Choose Us</span>
-            <h2 class="section__title" id="why-title">Reasons Businesses Trust Pulse Digital</h2>
-            <p class="section__lead">We combine expertise, transparency, and dedication to deliver marketing that works.</p>
-          </div>
-
-          <div class="why__grid">
-            <article class="why-box reveal">
-              <div class="why-box__icon" aria-hidden="true">⭐</div>
-              <h3 class="why-box__title">Experienced Professionals</h3>
-              <p class="why-box__text">Our team brings years of hands-on experience across multiple industries and channels.</p>
-            </article>
-            <article class="why-box reveal">
-              <div class="why-box__icon" aria-hidden="true">🎯</div>
-              <h3 class="why-box__title">Results-Focused Approach</h3>
-              <p class="why-box__text">We focus on outcomes that matter — traffic, leads, and revenue — not vanity metrics.</p>
-            </article>
-            <article class="why-box reveal">
-              <div class="why-box__icon" aria-hidden="true">💬</div>
-              <h3 class="why-box__title">Transparent Communication</h3>
-              <p class="why-box__text">Clear updates and honest reporting keep you informed at every stage of your campaign.</p>
-            </article>
-            <article class="why-box reveal">
-              <div class="why-box__icon" aria-hidden="true">🧩</div>
-              <h3 class="why-box__title">Custom Strategies</h3>
-              <p class="why-box__text">Every strategy is tailored to your business goals, audience, and market position.</p>
-            </article>
-            <article class="why-box reveal">
-              <div class="why-box__icon" aria-hidden="true">💷</div>
-              <h3 class="why-box__title">Affordable Solutions</h3>
-              <p class="why-box__text">Competitive pricing designed to deliver strong return on investment for growing businesses.</p>
-            </article>
-            <article class="why-box reveal">
-              <div class="why-box__icon" aria-hidden="true">🤝</div>
-              <h3 class="why-box__title">Long-Term Partnership</h3>
-              <p class="why-box__text">We build lasting relationships and grow alongside your business over time.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================= PROCESS ========================= -->
-      <section class="section section--light process" id="process" aria-labelledby="process-title">
-        <div class="container">
-          <div class="section__head reveal">
-            <span class="section__eyebrow">Our Process</span>
-            <h2 class="section__title" id="process-title">How We Drive Results</h2>
-            <p class="section__lead">A clear, proven process that turns strategy into measurable growth.</p>
-          </div>
-
-          <ol class="timeline" aria-label="Our five-step process">
-            <li class="timeline__item reveal">
-              <div class="timeline__dot" aria-hidden="true">1</div>
-              <div class="timeline__content">
-                <h3 class="timeline__title">Research</h3>
-                <p class="timeline__text">We analyse your market, audience, and competitors to build a foundation of insight.</p>
+              <div class="mt-8 grid grid-cols-2 gap-6">
+                <div class="flex items-start gap-3">
+                  <span class="text-royal text-xl">✓</span>
+                  <div>
+                    <div class="font-semibold text-navy">Experienced Team</div>
+                    <div class="text-sm text-slate-500">A decade of cross-industry expertise.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-royal text-xl">✓</span>
+                  <div>
+                    <div class="font-semibold text-navy">Transparent Reporting</div>
+                    <div class="text-sm text-slate-500">Clear metrics, no vanity numbers.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-royal text-xl">✓</span>
+                  <div>
+                    <div class="font-semibold text-navy">Custom Strategies</div>
+                    <div class="text-sm text-slate-500">Built around your business goals.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-royal text-xl">✓</span>
+                  <div>
+                    <div class="font-semibold text-navy">Proven Results</div>
+                    <div class="text-sm text-slate-500">ROI-focused, data-backed delivery.</div>
+                  </div>
+                </div>
               </div>
-            </li>
-            <li class="timeline__item reveal">
-              <div class="timeline__dot" aria-hidden="true">2</div>
-              <div class="timeline__content">
-                <h3 class="timeline__title">Planning</h3>
-                <p class="timeline__text">We craft a tailored strategy with clear objectives, channels, and success metrics.</p>
-              </div>
-            </li>
-            <li class="timeline__item reveal">
-              <div class="timeline__dot" aria-hidden="true">3</div>
-              <div class="timeline__content">
-                <h3 class="timeline__title">Execution</h3>
-                <p class="timeline__text">Our specialists implement campaigns across the right channels with precision and care.</p>
-              </div>
-            </li>
-            <li class="timeline__item reveal">
-              <div class="timeline__dot" aria-hidden="true">4</div>
-              <div class="timeline__content">
-                <h3 class="timeline__title">Optimisation</h3>
-                <p class="timeline__text">We continuously refine and improve campaigns based on live performance data.</p>
-              </div>
-            </li>
-            <li class="timeline__item reveal">
-              <div class="timeline__dot" aria-hidden="true">5</div>
-              <div class="timeline__content">
-                <h3 class="timeline__title">Reporting</h3>
-                <p class="timeline__text">Clear, transparent reports show exactly what we delivered and the impact on your business.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- ========================= STATISTICS ========================= -->
-      <section class="stats" id="stats" aria-labelledby="stats-title">
-        <div class="container">
-          <h2 class="visually-hidden" id="stats-title">Our statistics</h2>
-          <div class="stats__grid">
-            <div class="stat reveal">
-              <span class="stat__number" data-count="150" data-suffix="+">0</span>
-              <span class="stat__label">Projects Completed</span>
             </div>
-            <div class="stat reveal">
-              <span class="stat__number" data-count="98" data-suffix="%">0</span>
-              <span class="stat__label">Client Satisfaction</span>
-            </div>
-            <div class="stat reveal">
-              <span class="stat__number" data-count="10" data-suffix="+">0</span>
-              <span class="stat__label">Years Experience</span>
-            </div>
-            <div class="stat reveal">
-              <span class="stat__number" data-count="24" data-suffix="/7">0</span>
-              <span class="stat__label">Support</span>
+
+            <!-- Stats panel -->
+            <div class="reveal rounded-2xl bg-navy p-10 text-white shadow-xl">
+              <h3 class="text-xl font-bold text-white">By the numbers</h3>
+              <div class="mt-8 space-y-8">
+                <div class="flex items-end justify-between border-b border-white/10 pb-6">
+                  <span class="text-slate-300">Average traffic increase</span>
+                  <span class="text-3xl font-extrabold text-sky">212%</span>
+                </div>
+                <div class="flex items-end justify-between border-b border-white/10 pb-6">
+                  <span class="text-slate-300">Average lead growth</span>
+                  <span class="text-3xl font-extrabold text-sky">89%</span>
+                </div>
+                <div class="flex items-end justify-between border-b border-white/10 pb-6">
+                  <span class="text-slate-300">Client retention rate</span>
+                  <span class="text-3xl font-extrabold text-sky">98%</span>
+                </div>
+                <div class="flex items-end justify-between">
+                  <span class="text-slate-300">Campaigns launched</span>
+                  <span class="text-3xl font-extrabold text-sky">320+</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ========================= TESTIMONIALS ========================= -->
-      <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
-        <div class="container">
-          <div class="section__head reveal">
-            <span class="section__eyebrow">Testimonials</span>
-            <h2 class="section__title" id="testimonials-title">What Our Clients Say</h2>
-            <p class="section__lead">Real results and real feedback from businesses we've helped grow.</p>
+      <!-- =========================== CONTACT =========================== -->
+      <section id="contact" class="py-24 lg:py-32 bg-white">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <span class="inline-block rounded-full bg-royal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-royal mb-4">
+              Contact Us
+            </span>
+            <h2 class="text-3xl font-bold tracking-tight text-navy sm:text-4xl">Get Your Free Marketing Audit</h2>
+            <p class="mt-4 text-lg text-slate-600">
+              Tell us about your brand and goals — we'll get back to you within one business day.
+            </p>
           </div>
 
-          <div class="testimonials__grid">
-            <article class="testimonial-card reveal">
-              <div class="testimonial-card__stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
-              <blockquote class="testimonial-card__quote">
-                "Pulse Digital transformed our online presence. Within six months our organic traffic doubled and
-                qualified leads tripled. A genuinely results-driven team."
-              </blockquote>
-              <div class="testimonial-card__author">
-                <div class="testimonial-card__avatar" aria-hidden="true">SM</div>
-                <div>
-                  <strong>Sarah Mitchell</strong>
-                  <span>Director, Brightpath Consulting</span>
+          <div class="mt-16 grid lg:grid-cols-5 gap-10 items-start">
+            <!-- Contact form -->
+            <form id="contact-form" novalidate class="lg:col-span-3 rounded-2xl border border-slate-100 bg-white p-8 shadow-card">
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="flex flex-col gap-1.5">
+                  <label for="name" class="text-sm font-medium text-slate-700">Full Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    autocomplete="name"
+                    placeholder="John Smith"
+                    class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-ink placeholder:text-slate-400 focus:border-royal focus:bg-white focus:ring-4 focus:ring-royal/10 focus:outline-none transition-all"
+                  />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label for="email" class="text-sm font-medium text-slate-700">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    autocomplete="email"
+                    placeholder="john@company.com"
+                    class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-ink placeholder:text-slate-400 focus:border-royal focus:bg-white focus:ring-4 focus:ring-royal/10 focus:outline-none transition-all"
+                  />
                 </div>
               </div>
-            </article>
-
-            <article class="testimonial-card reveal">
-              <div class="testimonial-card__stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
-              <blockquote class="testimonial-card__quote">
-                "The transparency and reporting are exceptional. We always knew exactly where our budget was going and
-                what results it was driving. Highly recommended."
-              </blockquote>
-              <div class="testimonial-card__author">
-                <div class="testimonial-card__avatar" aria-hidden="true">JD</div>
-                <div>
-                  <strong>James Donovan</strong>
-                  <span>Founder, Northwind Retail</span>
+              <div class="grid sm:grid-cols-2 gap-5 mt-5">
+                <div class="flex flex-col gap-1.5">
+                  <label for="phone" class="text-sm font-medium text-slate-700">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    autocomplete="tel"
+                    placeholder="07123 456789"
+                    class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-ink placeholder:text-slate-400 focus:border-royal focus:bg-white focus:ring-4 focus:ring-royal/10 focus:outline-none transition-all"
+                  />
                 </div>
-              </div>
-            </article>
-
-            <article class="testimonial-card reveal">
-              <div class="testimonial-card__stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
-              <blockquote class="testimonial-card__quote">
-                "From SEO to social media, Pulse Digital handled everything seamlessly. Our brand finally has the
-                visibility it deserves. Worth every penny."
-              </blockquote>
-              <div class="testimonial-card__author">
-                <div class="testimonial-card__avatar" aria-hidden="true">AP</div>
-                <div>
-                  <strong>Aisha Patel</strong>
-                  <span>CEO, Lumiere Studio</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================= FAQ ========================= -->
-      <section class="section section--light faq" id="faq" aria-labelledby="faq-title">
-        <div class="container container--narrow">
-          <div class="section__head reveal">
-            <span class="section__eyebrow">FAQ</span>
-            <h2 class="section__title" id="faq-title">Frequently Asked Questions</h2>
-            <p class="section__lead">Answers to the questions we hear most often from prospective clients.</p>
-          </div>
-
-          <div class="faq__list">
-            <details class="faq-item reveal">
-              <summary class="faq-item__q">
-                How long does it take to see SEO results?
-                <span class="faq-item__icon" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-item__a">
-                <p>SEO is a long-term strategy. Most clients begin seeing meaningful improvements in organic rankings and traffic within 3 to 6 months, with compounding growth thereafter.</p>
-              </div>
-            </details>
-
-            <details class="faq-item reveal">
-              <summary class="faq-item__q">
-                Which social media platforms do you manage?
-                <span class="faq-item__icon" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-item__a">
-                <p>We manage Facebook, Instagram, LinkedIn, X (Twitter), and YouTube. We recommend platforms based on where your target audience is most active and engaged.</p>
-              </div>
-            </details>
-
-            <details class="faq-item reveal">
-              <summary class="faq-item__q">
-                Do you offer full digital marketing packages?
-                <span class="faq-item__icon" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-item__a">
-                <p>Yes. We build integrated packages combining SEO, social media, paid advertising, and content marketing tailored to your goals and budget.</p>
-              </div>
-            </details>
-
-            <details class="faq-item reveal">
-              <summary class="faq-item__q">
-                What does your consulting service include?
-                <span class="faq-item__icon" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-item__a">
-                <p>Our consulting covers strategy audits, channel recommendations, competitor analysis, and a customised roadmap to accelerate your business growth.</p>
-              </div>
-            </details>
-
-            <details class="faq-item reveal">
-              <summary class="faq-item__q">
-                How is your pricing structured?
-                <span class="faq-item__icon" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-item__a">
-                <p>Pricing depends on scope, channels, and campaign complexity. We offer monthly retainers and project-based packages. Contact us for a tailored quote.</p>
-              </div>
-            </details>
-
-            <details class="faq-item reveal">
-              <summary class="faq-item__q">
-                What is the typical project timeline?
-                <span class="faq-item__icon" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-item__a">
-                <p>Initial strategy and setup typically take 2 to 4 weeks. Ongoing campaigns run on monthly cycles with continuous optimisation and reporting throughout.</p>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================= CTA BANNER ========================= -->
-      <section class="cta-banner" id="cta" aria-labelledby="cta-title">
-        <div class="container cta-banner__inner reveal">
-          <h2 class="cta-banner__title" id="cta-title">Ready to Grow Your Business?</h2>
-          <p class="cta-banner__text">
-            Let's talk about your goals and build a strategy that delivers real, measurable results.
-          </p>
-          <div class="cta-banner__actions">
-            <a href="#contact" class="btn btn--accent btn--lg">Book Consultation</a>
-            <a href="tel:07810062054" class="btn btn--outline-light btn--lg">Call Now</a>
-          </div>
-          <p class="cta-banner__phone">Or call us directly: <a href="tel:07810062054">07810062054</a></p>
-        </div>
-      </section>
-
-      <!-- ========================= CONTACT ========================= -->
-      <section class="section contact" id="contact" aria-labelledby="contact-title">
-        <div class="container">
-          <div class="section__head reveal">
-            <span class="section__eyebrow">Contact</span>
-            <h2 class="section__title" id="contact-title">Let's Start a Conversation</h2>
-            <p class="section__lead">Tell us about your business and we'll get back to you within one business day.</p>
-          </div>
-
-          <div class="contact__grid">
-            <!-- Contact Form -->
-            <form class="contact-form reveal" id="contact-form" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Full Name</label>
-                  <input type="text" id="name" name="name" placeholder="John Smith" required autocomplete="name" />
-                </div>
-                <div class="form-group">
-                  <label for="email">Email Address</label>
-                  <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email" />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" placeholder="07123 456789" autocomplete="tel" />
-                </div>
-                <div class="form-group">
-                  <label for="service">Service Required</label>
-                  <select id="service" name="service" required>
+                <div class="flex flex-col gap-1.5">
+                  <label for="service" class="text-sm font-medium text-slate-700">Service Required</label>
+                  <select
+                    id="service"
+                    name="service"
+                    required
+                    class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-ink focus:border-royal focus:bg-white focus:ring-4 focus:ring-royal/10 focus:outline-none transition-all"
+                  >
                     <option value="" disabled selected>Select a service</option>
                     <option value="digital-marketing">Digital Marketing</option>
                     <option value="brand-performance">Brand Performance</option>
                     <option value="social-media">Social Media Marketing</option>
-                    <option value="seo">Search Engine Optimization (SEO)</option>
+                    <option value="seo">Search Engine Optimization</option>
                     <option value="consulting">Consulting</option>
                   </select>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project and goals..." required></textarea>
+              <div class="mt-5 flex flex-col gap-1.5">
+                <label for="message" class="text-sm font-medium text-slate-700">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Tell us about your project and growth goals..."
+                  class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-ink placeholder:text-slate-400 focus:border-royal focus:bg-white focus:ring-4 focus:ring-royal/10 focus:outline-none transition-all resize-vertical min-h-[120px]"
+                ></textarea>
               </div>
-              <button type="submit" class="btn btn--primary btn--lg btn--block">Send Message</button>
-              <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+              <button
+                type="submit"
+                class="mt-6 inline-flex items-center justify-center rounded-full bg-royal px-8 py-4 text-base font-semibold text-white shadow-cta hover:bg-royal-dark hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Send Message
+              </button>
+              <p id="form-feedback" role="status" aria-live="polite" class="mt-4 text-sm font-medium text-center min-h-[24px]"></p>
             </form>
 
-            <!-- Contact Info -->
-            <aside class="contact-info reveal" aria-label="Contact details">
-              <div class="contact-info__item">
-                <span class="contact-info__icon" aria-hidden="true">📞</span>
-                <div>
-                  <h3>Phone</h3>
-                  <a href="tel:07810062054">07810062054</a>
+            <!-- Company details -->
+            <aside class="lg:col-span-2 flex flex-col gap-4">
+              <div class="rounded-2xl bg-slate-50 p-6">
+                <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-4">Company Details</h3>
+                <div class="flex items-start gap-4">
+                  <span class="text-xl">📞</span>
+                  <div>
+                    <div class="text-sm font-medium text-slate-500">Phone</div>
+                    <a href="tel:07810062054" class="text-lg font-semibold text-navy hover:text-royal transition-colors">07810062054</a>
+                  </div>
                 </div>
-              </div>
-              <div class="contact-info__item">
-                <span class="contact-info__icon" aria-hidden="true">✉️</span>
-                <div>
-                  <h3>Email</h3>
-                  <a href="mailto:hello@pulsedigital.co.uk">hello@pulsedigital.co.uk</a>
+                <div class="flex items-start gap-4 mt-5">
+                  <span class="text-xl">✉️</span>
+                  <div>
+                    <div class="text-sm font-medium text-slate-500">Email</div>
+                    <a href="mailto:hello@pulsedigital.co.uk" class="text-lg font-semibold text-navy hover:text-royal transition-colors">hello@pulsedigital.co.uk</a>
+                  </div>
                 </div>
-              </div>
-              <div class="contact-info__item">
-                <span class="contact-info__icon" aria-hidden="true">🕒</span>
-                <div>
-                  <h3>Business Hours</h3>
-                  <p>Mon–Fri<br />9 AM–6 PM</p>
+                <div class="flex items-start gap-4 mt-5">
+                  <span class="text-xl">📍</span>
+                  <div>
+                    <div class="text-sm font-medium text-slate-500">Address</div>
+                    <p class="text-base text-navy leading-relaxed">71 Cherry Tree Lane<br />London, SW1A 1AA<br />United Kingdom</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 mt-5">
+                  <span class="text-xl">🕒</span>
+                  <div>
+                    <div class="text-sm font-medium text-slate-500">Business Hours</div>
+                    <p class="text-base text-navy">Mon–Fri, 9 AM – 6 PM</p>
+                  </div>
                 </div>
               </div>
 
               <!-- Map placeholder -->
-              <div class="map-placeholder" role="img" aria-label="Map showing Pulse Digital location in the United Kingdom">
-                <div class="map-placeholder__pin" aria-hidden="true">📍</div>
+              <div class="flex flex-1 flex-col items-center justify-center gap-2 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200 min-h-[180px] text-slate-500 font-medium">
+                <span class="text-3xl">📍</span>
                 <span>United Kingdom</span>
               </div>
             </aside>
@@ -629,94 +587,266 @@
       </section>
     </main>
 
-    <!-- ========================= FOOTER ========================= -->
-    <footer class="footer" aria-labelledby="footer-title">
-      <h2 class="visually-hidden" id="footer-title">Footer</h2>
-      <div class="container footer__top">
-        <div class="footer__brand">
-          <a href="#hero" class="logo logo--light">
-            <span class="logo__mark">Pulse</span><span class="logo__text">Digital</span>
-          </a>
-          <p class="footer__desc">
-            A UK digital marketing agency helping businesses grow through data-driven strategies, measurable results,
-            and long-term partnerships.
-          </p>
-          <ul class="social">
-            <li>
-              <a href="#" class="social__link" aria-label="Facebook">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12z"/></svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social__link" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.86 5.86 0 0 0 2.12-1.38 5.86 5.86 0 0 0 1.38-2.12c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.38-2.12A5.86 5.86 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social__link" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social__link" aria-label="X (Twitter)">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93zm-1.29 19.5h2.04L6.46 3.24H4.27l13.34 17.41z"/></svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social__link" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
-              </a>
-            </li>
-          </ul>
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="bg-navy text-slate-400">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid gap-10 py-16 md:grid-cols-3">
+          <!-- Brand + social -->
+          <div>
+            <a href="#hero" class="flex items-baseline gap-0 text-2xl font-extrabold tracking-tight" aria-label="Pulse Digital home">
+              <span class="text-sky">Pulse</span><span class="text-white">Digital</span>
+            </a>
+            <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
+              A premier digital marketing agency helping ambitious brands scale with data-driven, multi-channel
+              growth campaigns built for measurable ROI.
+            </p>
+            <!-- Social icons -->
+            <ul class="mt-6 flex gap-3">
+              <li>
+                <a href="#" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-slate-300 hover:bg-royal hover:text-white hover:-translate-y-0.5 transition-all duration-200">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12z"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="LinkedIn" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-slate-300 hover:bg-royal hover:text-white hover:-translate-y-0.5 transition-all duration-200">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="X (Twitter)" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-slate-300 hover:bg-royal hover:text-white hover:-translate-y-0.5 transition-all duration-200">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93zm-1.29 19.5h2.04L6.46 3.24H4.27l13.34 17.41z"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-slate-300 hover:bg-royal hover:text-white hover:-translate-y-0.5 transition-all duration-200">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.86 5.86 0 0 0 2.12-1.38 5.86 5.86 0 0 0 1.38-2.12c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.38-2.12A5.86 5.86 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Quick links -->
+          <nav aria-label="Footer quick links" class="md:justify-self-center">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-white mb-4">Quick Links</h3>
+            <ul class="space-y-3 text-sm">
+              <li><a href="#hero" class="text-slate-400 hover:text-sky transition-colors">Home</a></li>
+              <li><a href="#services" class="text-slate-400 hover:text-sky transition-colors">Services</a></li>
+              <li><a href="#about" class="text-slate-400 hover:text-sky transition-colors">About</a></li>
+              <li><a href="#contact" class="text-slate-400 hover:text-sky transition-colors">Contact</a></li>
+            </ul>
+          </nav>
+
+          <!-- Services links (placeholder — swap for real pages later) -->
+          <nav aria-label="Footer services" class="md:justify-self-end">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-white mb-4">Services</h3>
+            <ul class="space-y-3 text-sm">
+              <li><a href="#" class="text-slate-400 hover:text-sky transition-colors">Digital Marketing</a></li>
+              <li><a href="#" class="text-slate-400 hover:text-sky transition-colors">Brand Performance</a></li>
+              <li><a href="#" class="text-slate-400 hover:text-sky transition-colors">Social Media Marketing</a></li>
+              <li><a href="#" class="text-slate-400 hover:text-sky transition-colors">Search Engine Optimization</a></li>
+              <li><a href="#" class="text-slate-400 hover:text-sky transition-colors">Consulting</a></li>
+            </ul>
+          </nav>
         </div>
 
-        <nav class="footer__col" aria-label="Quick links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#why">Why Choose Us</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-
-        <nav class="footer__col" aria-label="Services">
-          <h3>Services</h3>
-          <ul>
-            <li><a href="#">Digital Marketing</a></li>
-            <li><a href="#">Brand Performance</a></li>
-            <li><a href="#">Social Media Marketing</a></li>
-            <li><a href="#">Search Engine Optimization</a></li>
-            <li><a href="#">Consulting</a></li>
-          </ul>
-        </nav>
-
-        <div class="footer__col footer__contact">
-          <h3>Contact</h3>
-          <ul>
-            <li><a href="tel:07810062054">07810062054</a></li>
-            <li><a href="mailto:hello@pulsedigital.co.uk">hello@pulsedigital.co.uk</a></li>
-            <li>United Kingdom</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <div class="container footer__bottom-inner">
-          <p>&copy; <span id="year">2025</span> Pulse Digital. All rights reserved.</p>
-          <p>Built for growth in the United Kingdom.</p>
+        <!-- Bottom bar -->
+        <div class="border-t border-white/10 py-6">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+            <p>&copy; <span id="year">2025</span> Pulse Digital. All rights reserved.</p>
+            <p>Built for growth in the United Kingdom.</p>
+          </div>
         </div>
       </div>
     </footer>
 
-    <!-- Back to top -->
-    <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Back to top">
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg>
-    </a>
+    <!-- ============================ SCRIPTS ============================ -->
+    <script>
+      /* ==========================================================================
+         Pulse Digital — Landing Page
+         Vanilla JavaScript (modular, well-commented)
+         --------------------------------------------------------------------------
+         Modules
+         1. Sticky header shadow on scroll
+         2. Mobile hamburger menu toggle
+         3. Active nav link highlighting
+         4. Reveal-on-scroll (IntersectionObserver)
+         5. Contact form validation
+         6. Auto-update footer year
+         ========================================================================== */
 
-    <!-- Scripts -->
-    <script type="module" src="/script.js"></script>
+      (function () {
+        "use strict";
+
+        /* =================== 1. STICKY HEADER SHADOW ==================== */
+        function initStickyHeader() {
+          const header = document.getElementById("header");
+          if (!header) return;
+
+          const onScroll = () => {
+            header.classList.toggle("shadow-md", window.scrollY > 20);
+            header.classList.toggle("border-slate-100", window.scrollY > 20);
+          };
+
+          onScroll();
+          window.addEventListener("scroll", onScroll, { passive: true });
+        }
+
+        /* ================ 2. MOBILE HAMBURGER MENU ===================== */
+        function initMobileMenu() {
+          const toggle = document.getElementById("menu-toggle");
+          const menu = document.getElementById("mobile-menu");
+          if (!toggle || !menu) return;
+
+          const bars = toggle.querySelectorAll(".menu-bar");
+          let open = false;
+
+          const setMenu = (isOpen) => {
+            open = isOpen;
+            menu.classList.toggle("max-h-0", !isOpen);
+            menu.classList.toggle("opacity-0", !isOpen);
+            menu.classList.toggle("max-h-96", isOpen);
+            menu.classList.toggle("opacity-100", isOpen);
+            toggle.setAttribute("aria-expanded", String(isOpen));
+
+            // Animate bars into an X
+            bars[0].classList.toggle("translate-y-2", isOpen);
+            bars[0].classList.toggle("rotate-45", isOpen);
+            bars[1].classList.toggle("opacity-0", isOpen);
+            bars[2].classList.toggle("-translate-y-2", isOpen);
+            bars[2].classList.toggle("-rotate-45", isOpen);
+          };
+
+          toggle.addEventListener("click", () => setMenu(!open));
+
+          // Close when a mobile link is tapped
+          menu.querySelectorAll(".mobile-link").forEach((link) => {
+            link.addEventListener("click", () => setMenu(false));
+          });
+
+          // Close on resize to desktop
+          window.addEventListener("resize", () => {
+            if (window.innerWidth >= 768) setMenu(false);
+          });
+        }
+
+        /* =============== 3. ACTIVE NAV LINK HIGHLIGHTING =============== */
+        function initActiveNav() {
+          const navLinks = document.querySelectorAll(".nav-link");
+          if (!navLinks.length) return;
+
+          const sections = Array.from(navLinks)
+            .map((link) => {
+              const id = link.getAttribute("href");
+              return id && id.startsWith("#") ? document.querySelector(id) : null;
+            })
+            .filter(Boolean);
+
+          const setActive = () => {
+            const pos = window.scrollY + 130;
+            let current = null;
+
+            sections.forEach((section) => {
+              if (pos >= section.offsetTop) current = "#" + section.id;
+            });
+
+            navLinks.forEach((link) => {
+              const isActive = link.getAttribute("href") === current;
+              link.classList.toggle("text-royal", isActive);
+              link.classList.toggle("font-semibold", isActive);
+            });
+          };
+
+          setActive();
+          window.addEventListener("scroll", setActive, { passive: true });
+        }
+
+        /* =============== 4. REVEAL-ON-SCROLL ANIMATIONS ================ */
+        function initRevealOnScroll() {
+          const reveals = document.querySelectorAll(".reveal");
+          if (!reveals.length) return;
+
+          if (!("IntersectionObserver" in window)) {
+            reveals.forEach((el) => el.classList.add("visible"));
+            return;
+          }
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+          );
+
+          reveals.forEach((el) => observer.observe(el));
+        }
+
+        /* =============== 5. CONTACT FORM VALIDATION ==================== */
+        function initContactForm() {
+          const form = document.getElementById("contact-form");
+          const feedback = document.getElementById("form-feedback");
+          if (!form || !feedback) return;
+
+          const isEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+
+          const mark = (field, invalid) => {
+            field.classList.toggle("border-red-500", invalid);
+            field.classList.toggle("ring-red-100", invalid);
+            if (invalid) field.setAttribute("aria-invalid", "true");
+            else field.removeAttribute("aria-invalid");
+          };
+
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            feedback.textContent = "";
+            feedback.className = "mt-4 text-sm font-medium text-center min-h-[24px]";
+
+            const { name, email, service, message } = form;
+            let valid = true;
+
+            if (!name.value.trim()) { mark(name, true); valid = false; } else mark(name, false);
+            if (!isEmail(email.value.trim())) { mark(email, true); valid = false; } else mark(email, false);
+            if (!service.value) { mark(service, true); valid = false; } else mark(service, false);
+            if (!message.value.trim()) { mark(message, true); valid = false; } else mark(message, false);
+
+            if (!valid) {
+              feedback.textContent = "Please fill in all required fields correctly.";
+              feedback.classList.add("text-red-600");
+              return;
+            }
+
+            feedback.textContent = "Thank you! Your message has been sent. We'll be in touch within one business day.";
+            feedback.classList.add("text-green-600");
+            form.reset();
+          });
+        }
+
+        /* =============== 6. AUTO-UPDATE FOOTER YEAR ==================== */
+        function initYear() {
+          const el = document.getElementById("year");
+          if (el) el.textContent = new Date().getFullYear();
+        }
+
+        /* ========================== INIT ALL =========================== */
+        function init() {
+          initStickyHeader();
+          initMobileMenu();
+          initActiveNav();
+          initRevealOnScroll();
+          initContactForm();
+          initYear();
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", init);
+        } else {
+          init();
+        }
+      })();
+    </script>
   </body>
 </html>
